@@ -1,4 +1,4 @@
-# evrika-project
+# home-page
 
 ## Project setup
 ```
