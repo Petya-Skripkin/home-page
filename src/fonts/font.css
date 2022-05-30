@@ -1,0 +1,25 @@
+@font-face {
+   font-family: "Manrope";
+   src: local("Manrope"),
+      url(@/fonts/Manrope/Manrope-Regular.ttf) format("truetype"),
+      url(@/fonts/Manrope/Manrope-ExtraBold.ttf) format("truetype"),
+      url(@/fonts/Manrope/Manrope-ExtraLight.ttf) format("truetype"),
+      url(@/fonts/Manrope/Manrope-Light.ttf) format("truetype"),
+      url(@/fonts/Manrope/Manrope-Medium.ttf) format("truetype"),
+      url(@/fonts/Manrope/Manrope-Bold.ttf) format("truetype"),
+      url(@/fonts/Manrope/Manrope-SemiBold.ttf) format("truetype");
+}
+
+@font-face {
+   font-family: "Inter";
+   src: local("Intel"),
+      url(@/fonts/Inter/Inter-Regular.ttf) format("truetype"),
+      url(@/fonts/Inter/Inter-Black.ttf) format("truetype"),
+      url(@/fonts/Inter/Inter-Bold.ttf) format("truetype"),
+      url(@/fonts/Inter/Inter-ExtraBold.ttf) format("truetype"),
+      url(@/fonts/Inter/Inter-ExtraLight.ttf) format("truetype"),
+      url(@/fonts/Inter/Inter-Light.ttf) format("truetype"),
+      url(@/fonts/Inter/Inter-Medium.ttf) format("truetype"),
+      url(@/fonts/Inter/Inter-SemiBold.ttf) format("truetype"),
+      url(@/fonts/Inter/Inter-Thin.ttf) format("truetype");
+}
