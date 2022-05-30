@@ -45,8 +45,12 @@ export default {
     return {
       show: false,
       nowCalled: "Помощь и консультация",
-      calls: ["87056982391", "87077985572"],
     };
+  },
+  props: {
+    calls: {
+      type: Array,
+    },
   },
   methods: {
     OnShow() {
