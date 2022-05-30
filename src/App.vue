@@ -9,7 +9,7 @@
     />
     <div class="flex__conteiner">
       <MySideBar :links="links" />
-      <div class="slide"></div>
+      <MySlider :slide="slide" />
     </div>
   </div>
 </template>
@@ -18,13 +18,15 @@
 import MyTip from "@/components/MyTip.vue";
 import MyHeader from "@/components/MyHeader.vue";
 import MySideBar from "./components/MySideBar.vue";
+import MySlider from "./components/MySlider.vue";
 export default {
   name: "App",
   components: {
     MyTip,
     MyHeader,
     MySideBar,
-  },
+    MySlider
+},
   data() {
     return {
       calls: ["87056982391", "87077985572"],
@@ -105,6 +107,24 @@ export default {
           title: "Игры и приставки",
         },
       ],
+       slide: [
+        {
+          id: 1,
+          img: "slide.png",
+        },
+        {
+          id: 2,
+          img: "slide.png",
+        },
+        {
+          id: 3,
+          img: "slide.png",
+        },
+        {
+          id: 4,
+          img: "slide.png",
+        },
+      ],
     };
   },
 };
@@ -122,10 +142,5 @@ body {
 .flex__conteiner {
   display: flex;
   margin-top: 24px;
-}
-
-.slide {
-  flex: 4;
-  background: blue;
 }
 </style>
