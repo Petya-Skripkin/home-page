@@ -27,6 +27,9 @@
         </div>
       </div>
     </div>
+    <div class="cards mr">
+      <MyCard :cards="cards" />
+    </div>
   </div>
 </template>
 
@@ -36,6 +39,7 @@ import MyHeader from "@/components/MyHeader.vue";
 import MySideBar from "@/components/MySideBar.vue";
 import MySlider from "@/components/MySlider.vue";
 import MyProduct from "@/components/MyProduct.vue";
+import MyCard from "@/components/MyCard.vue";
 import * as mock from "@/mock";
 
 export default {
@@ -46,7 +50,8 @@ export default {
     MySideBar,
     MySlider,
     MyProduct,
-  },
+    MyCard
+},
   data() {
     return {
       calls: ["87056982391", "87077985572"],
@@ -146,6 +151,7 @@ export default {
         },
       ],
       products: mock.products,
+      cards: mock.cards,
     };
   },
   methods: {
@@ -193,5 +199,12 @@ body {
 .product__box {
   width: 242px;
   margin-bottom: 8px;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 32px;
 }
 </style>

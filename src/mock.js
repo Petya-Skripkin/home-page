@@ -373,3 +373,56 @@ export const products = [
     ],
   },
 ]
+
+export const cards = [
+  {
+    id: 1,
+    link: "#",
+    logo: "BoschLogo.svg"
+  },
+  {
+    id: 2,
+    link: "#",
+    logo: "oppo.svg"
+  },
+  {
+    id: 3,
+    link: "#",
+    logo: "huawei.svg"
+  },
+  {
+    id: 4,
+    link: "#",
+    logo: "MI.svg"
+  },
+  {
+    id: 5,
+    link: "#",
+    logo: "samsung.svg"
+  },
+  {
+    id: 6,
+    link: "#",
+    logo: "LG.svg"
+  },
+  {
+    id: 7,
+    link: "#",
+    logo: "philips.svg"
+  },
+  {
+    id: 8,
+    link: "#",
+    logo: "lenovo.svg"
+  },
+  {
+    id: 9,
+    link: "#",
+    logo: "tefal.svg"
+  },
+  {
+    id: 10,
+    link: "#",
+    logo: "asus.svg"
+  },
+]
