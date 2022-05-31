@@ -1,5 +1,5 @@
 <template>
-  <div class="tip">
+  <div class="tip mr">
     <button class="location">
       <img class="img" src="@/assets/location.png" />
       Алматы

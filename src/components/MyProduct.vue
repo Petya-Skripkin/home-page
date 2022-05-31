@@ -2,15 +2,17 @@
   <div class="product">
     <img :src="require(`@/assets/${img}`)" alt="" class="product__image" />
     <p class="product__desk">
-      {{title}}
+      {{ title }}
     </p>
-    <div class="price__box">
-      <h3 v-if="oldPrice" class="product__price promotion">{{oldPrice}}</h3>
-      <h3 class="product__price">{{price}}</h3>
+    <div class="basket__box">
+      <div class="price__box">
+        <h3 v-if="oldPrice" class="product__price promotion">{{ oldPrice }}</h3>
+        <h3 class="product__price">{{ price }}</h3>
+      </div>
+      <button class="basket" @click="Basket">
+        <img src="@/assets/icons/basket.svg" alt="" style="height: 15px" />
+      </button>
     </div>
-    <button class="basket" @click="Basket">
-      <img src="@/assets/icons/basket.svg" alt="" style="height: 15px" />
-    </button>
     <div v-if="colors" class="radio">
       <label
         v-for="color in colors"
@@ -51,59 +53,23 @@
 
 <script>
 export default {
+  props: {
+    title: String,
+    img: String,
+    price: String,
+    oldPrice: String,
+    colors: Array,
+    bookmarks: Array,
+  },
   data() {
     return {
-      title: "Планшет Samsung Galaxy Tab S8 11 128GB Silver (SM-X706)",
-      img: "tablet.png",
-      price: "499 890 ₸",
-      oldPrice: "499 890 ₸",
       selectedColor: "red",
-      colors: [
-        {
-          colorName: "red",
-          color: "linear-gradient(180deg, #F857A6 0%, #FF5858 100%)",
-        },
-        {
-          colorName: "white",
-          border: "0.6px solid rgba(31, 31, 31, 0.12)",
-        },
-        {
-          colorName: "black",
-          color: "linear-gradient(180deg, #232526 0%, #414345 100%)",
-        },
-        {
-          colorName: "green",
-          color: "linear-gradient(180deg, #34E89E 0%, #0F3443 100%)",
-        },
-        {
-          colorName: "orange",
-          color: "linear-gradient(180deg, #FF4B1F 0%, #FF9068 100%)",
-        },
-      ],
-      bookmarks: [
-        {
-          id: 0,
-          color:
-            "linear-gradient(91.87deg, #FF00B8 0.42%, #B009FE 37.09%, #3E1FFC 65.17%, #00DEFF 103.84%);",
-          title: "Хит продаж",
-        },
-        {
-          id: 3,
-          color: "#FFCD00",
-          title: "Новинка",
-        },
-        {
-          id: 2,
-          color: "#FF3B30",
-          title: "-20%",
-        },
-        {
-          id: 1,
-          color: "#62D44D",
-          icon: "gift.svg",
-        },
-      ],
     };
+  },
+  methods: {
+    Basket() {
+      this.$emit("basket", this.selectedColor);
+    },
   },
 };
 </script>
@@ -117,10 +83,15 @@ export default {
 
   border: 1px solid #f7f7f7;
   border-radius: 8px;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 }
 
 .product__image {
-  height: 156.68px;
+  box-sizing: content-box;
+  max-height: 156.68px;
   margin-bottom: 45px;
 }
 
@@ -173,10 +144,18 @@ export default {
   color: #999999;
 }
 
+.basket__box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 56px;
+  margin-top: auto;
+}
+
 .basket {
-  position: absolute;
+  /* position: absolute;
   bottom: 20px;
-  right: 20px;
+  right: 20px; */
   display: flex;
   flex-direction: column;
   justify-content: center;

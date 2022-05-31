@@ -7,12 +7,25 @@
       :menu="menu"
       :placeholder="placeholder"
     />
-    <div class="flex__conteiner">
+    <div class="mr flex__conteiner">
       <MySideBar :links="links" />
       <MySlider :slide="slide" />
     </div>
-    <div class="products">
-      <MyProduct />
+    <div class="products mr">
+      <h1 class="news">Новинки</h1>
+      <div class="product__conteiner">
+        <div v-for="product in products" :key="product.id" class="product__box">
+          <MyProduct
+            :bookmarks="product.bookmarks"
+            :colors="product.colors"
+            :img="product.img"
+            :oldPrice="product.oldPrice"
+            :price="product.price"
+            :title="product.title"
+            @basket="Basket"
+          />
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -23,6 +36,8 @@ import MyHeader from "@/components/MyHeader.vue";
 import MySideBar from "@/components/MySideBar.vue";
 import MySlider from "@/components/MySlider.vue";
 import MyProduct from "@/components/MyProduct.vue";
+import * as mock from "@/mock";
+
 export default {
   name: "App",
   components: {
@@ -30,8 +45,8 @@ export default {
     MyHeader,
     MySideBar,
     MySlider,
-    MyProduct
-},
+    MyProduct,
+  },
   data() {
     return {
       calls: ["87056982391", "87077985572"],
@@ -112,7 +127,7 @@ export default {
           title: "Игры и приставки",
         },
       ],
-       slide: [
+      slide: [
         {
           id: 1,
           img: "slide.png",
@@ -130,7 +145,13 @@ export default {
           img: "slide.png",
         },
       ],
+      products: mock.products,
     };
+  },
+  methods: {
+    Basket(e) {
+      console.log(e);
+    },
   },
 };
 </script>
@@ -144,13 +165,33 @@ body {
   background: #f7f7f7;
 }
 
+.mr {
+  margin: 0 48px;
+}
+
 .flex__conteiner {
   display: flex;
   margin-top: 24px;
 }
 
-.products {
-  width: 260px;
-  margin-left: 50%;
+.news {
+  margin-top: 32px;
+  font-weight: 800;
+  font-size: 28.5px;
+  line-height: 18px;
+  /* identical to box height, or 63% */
+
+  color: #000000;
+}
+
+.product__conteiner {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.product__box {
+  width: 242px;
+  margin-bottom: 8px;
 }
 </style>
