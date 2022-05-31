@@ -11,21 +11,26 @@
       <MySideBar :links="links" />
       <MySlider :slide="slide" />
     </div>
+    <div class="products">
+      <MyProduct />
+    </div>
   </div>
 </template>
 
 <script>
 import MyTip from "@/components/MyTip.vue";
 import MyHeader from "@/components/MyHeader.vue";
-import MySideBar from "./components/MySideBar.vue";
-import MySlider from "./components/MySlider.vue";
+import MySideBar from "@/components/MySideBar.vue";
+import MySlider from "@/components/MySlider.vue";
+import MyProduct from "@/components/MyProduct.vue";
 export default {
   name: "App",
   components: {
     MyTip,
     MyHeader,
     MySideBar,
-    MySlider
+    MySlider,
+    MyProduct
 },
   data() {
     return {
@@ -142,5 +147,10 @@ body {
 .flex__conteiner {
   display: flex;
   margin-top: 24px;
+}
+
+.products {
+  width: 260px;
+  margin-left: 50%;
 }
 </style>
