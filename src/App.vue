@@ -31,6 +31,18 @@
       <MyCard :cards="cards" />
     </div>
     <MyRoll />
+    <MyFloor />
+    <div class="footer">
+      <img
+        :src="require(`@/assets/icons/${logo}`)"
+        alt=""
+        class="footer__icon"
+      />
+      <a href="#" class="footer__link"
+        >Политика конфиденциальности • Карта сайта
+      </a>
+      <p class="footer__company">Copyright © 2013 - 2022 ТОО Компания Эврика</p>
+    </div>
   </div>
 </template>
 
@@ -42,6 +54,7 @@ import MySlider from "@/components/MySlider.vue";
 import MyProduct from "@/components/MyProduct.vue";
 import MyCard from "@/components/MyCard.vue";
 import MyRoll from "@/components/MyRoll.vue";
+import MyFloor from "@/components/MyFloor.vue";
 import * as mock from "@/mock";
 
 export default {
@@ -53,8 +66,9 @@ export default {
     MySlider,
     MyProduct,
     MyCard,
-    MyRoll
-},
+    MyRoll,
+    MyFloor,
+  },
   data() {
     return {
       calls: ["87056982391", "87077985572"],
@@ -209,5 +223,46 @@ body {
   justify-content: space-between;
   align-items: center;
   margin-top: 32px;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  padding: 36px 48px;
+  background: #141a38;
+}
+
+.footer__icon {
+  height: 18px;
+}
+
+.footer__link {
+  margin: auto;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 17px;
+  /* identical to box height, or 170% */
+
+  letter-spacing: 0.05em;
+
+  color: #ffffff;
+  text-decoration: none;
+  text-align: center;
+}
+
+.footer__company {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 17px;
+  /* identical to box height, or 170% */
+
+  letter-spacing: 0.05em;
+
+  text-align: center;
+  color: #ffffff;
 }
 </style>
