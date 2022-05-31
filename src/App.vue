@@ -30,6 +30,7 @@
     <div class="cards mr">
       <MyCard :cards="cards" />
     </div>
+    <MyRoll />
   </div>
 </template>
 
@@ -40,6 +41,7 @@ import MySideBar from "@/components/MySideBar.vue";
 import MySlider from "@/components/MySlider.vue";
 import MyProduct from "@/components/MyProduct.vue";
 import MyCard from "@/components/MyCard.vue";
+import MyRoll from "@/components/MyRoll.vue";
 import * as mock from "@/mock";
 
 export default {
@@ -50,7 +52,8 @@ export default {
     MySideBar,
     MySlider,
     MyProduct,
-    MyCard
+    MyCard,
+    MyRoll
 },
   data() {
     return {
