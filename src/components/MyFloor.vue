@@ -32,11 +32,16 @@
     <MyLinks :title="userTitle" :links="users" />
     <MyLinks :title="serviseTitle" :links="servises" />
     <div class="contacts">
-      <h2 class="title">Контакты</h2>
-      <p class="text phone">+7(771) 936-54-54</p>
-      <p class="text">С 09:00 до 21:00 (без выходных)</p>
-      <a href="#" class="contacts__link text">Написать на WhatsApp</a>
-      <a href="#" class="contacts__link text">support@evrika.com</a>
+      <h2 class="title">{{ contacts.title }}</h2>
+      <p class="text phone">{{ contacts.phone }}</p>
+      <p class="text">{{ contacts.text }}</p>
+      <a
+        v-for="item in contacts.links"
+        :key="item.text"
+        :href="item.link"
+        class="contacts__link text"
+        >{{ item.text }}</a
+      >
     </div>
   </div>
 </template>
@@ -44,129 +49,20 @@
 <script>
 import MyLinks from "./MyLinks.vue";
 export default {
+  props: {
+    linkTitle: String,
+    userTitle: String,
+    serviseTitle: String,
+    radios: Array,
+    networks: Array,
+    links: Array,
+    users: Array,
+    servises: Array,
+    contacts: Object,
+  },
   data() {
     return {
-      linkTitle: "Компания Evrika",
-      userTitle: "Покупателям",
-      serviseTitle: "Услуги и сервисы",
       checked: "Номер телефона",
-      radios: ["Номер телефона", "Email"],
-      networks: [
-        {
-          link: "#",
-          img: "facebook.svg",
-        },
-        {
-          link: "#",
-          img: "odnoklassniki.svg",
-        },
-        {
-          link: "#",
-          img: "twitter.svg",
-        },
-        {
-          link: "#",
-          img: "vkontakte.svg",
-        },
-        {
-          link: "#",
-          img: "whatsapp.svg",
-        },
-      ],
-      links: [
-        {
-          link: "#",
-          title: "О компании",
-        },
-        {
-          link: "#",
-          title: "Магазины и пункты выдачи заказов",
-        },
-        {
-          link: "#",
-          title: "Корпоративные продажи",
-        },
-        {
-          link: "#",
-          title: "Новости",
-        },
-        {
-          link: "#",
-          title: "Вакансии",
-        },
-        {
-          link: "#",
-          title: "Авторизованные сервисные центры",
-        },
-        {
-          link: "#",
-          title: "Аренда торговых помещений",
-        },
-        {
-          link: "#",
-          title: "Контакты",
-        },
-      ],
-      users: [
-        {
-          link: "#",
-          title: "Акции",
-        },
-        {
-          link: "#",
-          title: "Каталог товаров",
-        },
-        {
-          link: "#",
-          title: "Доставка и оплата",
-        },
-        {
-          link: "#",
-          title: "Кредит и рассрочка",
-        },
-        {
-          link: "#",
-          title: "Возврат и обмен",
-        },
-        {
-          link: "#",
-          title: "Гарантия лучшей цены",
-        },
-        {
-          link: "#",
-          title: "Публичная оферта",
-        },
-        {
-          link: "#",
-          title: "FAQ",
-        },
-        {
-          link: "#",
-          title: "Вопросы по работе техники",
-        },
-      ],
-      servises: [
-        {
-          link: "#",
-          title: "Smart Service",
-        },
-        {
-          link: "#",
-          title: "Smart Bonus",
-        },
-        {
-          link: "#",
-          title: "Smart market",
-        },
-        {
-          link: "#",
-          title: "Smart Gift",
-        },
-        {
-          link: "#",
-          title: "Установка техники",
-        },
-      ],
     };
   },
   components: { MyLinks },
@@ -284,6 +180,6 @@ export default {
 
 .contacts__link {
   text-decoration: none;
-  color: #029AAD;
+  color: #029aad;
 }
 </style>
